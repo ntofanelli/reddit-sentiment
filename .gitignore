@@ -17,3 +17,6 @@
 venv/
 .venv/
 env/
+
+# database
+.db
