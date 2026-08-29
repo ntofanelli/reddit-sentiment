@@ -47,7 +47,8 @@ def save_post(sub, score, date=DATE):
 
 # return day's avg score
 # default is today
-def avg_day_score(target_date=DATE):
+def avg_day_score(date=DATE):
+    print(date)
     with sqlite3.connect("main.db") as con:
         # cursor obj for commands
         crs = con.cursor()
@@ -55,7 +56,7 @@ def avg_day_score(target_date=DATE):
         today_posts = crs.execute("""
             SELECT score
             FROM posts
-            WHERE date = target_date
+            WHERE date = date
             """
         )
 
@@ -73,3 +74,5 @@ def avg_day_score(target_date=DATE):
 
         crs.close()
     return avg
+
+print(avg_day_score())
