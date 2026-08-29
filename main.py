@@ -10,13 +10,15 @@ from dotenv import load_dotenv
 
 #Local project modules
 from reddit_client import fetch_posts
-from sentiment import analyze_sentiment, score_to_label
-from database import init_db, save_post, save_daily_summary
+from sentiment import analyze_sentiment
+from database import init_db, save_post, avg_day_score
 
 
 
 SUBREDDITS = ["wallstreetbets","stocks", "pennystocks"]
 MIN_CHAR_LIMIT = 100
+
+init_db()
 
 posts = []
 for sub in SUBREDDITS:
@@ -25,5 +27,23 @@ for sub in SUBREDDITS:
 
     for post in post_sub:
         if len(post) > MIN_CHAR_LIMIT:   # check str len
-            posts += post                # add to posts
+            score = analyze_sentiment(post)
+            if score != -1:
+                save_post(sub, score)
 
+
+
+avg = avg_day_score()
+if avg is None:
+    print("No posts saved today.")
+else:
+    print("Today's average is " + str(avg))
+    message = "Today's sentiment is "
+    # score 0 is neg 1 nutetral 2 is positive
+    if avg < 0.75:
+        message += "bearish"
+    elif avg > 1.25:
+        message += "bullish!"
+    else: # nutral case
+        message += "nuetral"
+    print(message)

@@ -67,12 +67,10 @@ def avg_day_score(date=DATE):
 
         # if no posts added for day, return None
         if len(scores) == 0:
-            print("No results for the day: " + str(target_date))
+            print("No results for the day: " + str(date))
             avg = None
         else:
             avg = sum(scores) / len(scores) # return float
 
         crs.close()
     return avg
-
-print(avg_day_score())
