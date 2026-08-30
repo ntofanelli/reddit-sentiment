@@ -43,6 +43,9 @@ def fetch_posts(subreddit, category="new", timeframe="day"):
                 params = {
                     "url" : url
                 }
+                headers = {
+                    'x-api-key': API_KEY
+                }
 
                 try:
                     response = requests.get(URL + "post", headers=headers, params=params)

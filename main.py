@@ -19,7 +19,7 @@ SUBREDDITS = ["wallstreetbets","stocks", "pennystocks"]
 MIN_CHAR_LIMIT = 100
 
 init_db()
-
+print("Grabbing and analyzing posts from " + str(len(SUBREDDITS)) + " subreddit(s)... ")
 posts = []
 for sub in SUBREDDITS:
 
@@ -34,7 +34,7 @@ for sub in SUBREDDITS:
 
 
 avg = avg_day_score()
-print("Grabbing and analyzing posts from " + str(len(SUBREDDITS)) + " subreddit(s)... ")
+
 if avg is None:
     print("No posts saved today.")
 else:
