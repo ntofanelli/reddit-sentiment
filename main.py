@@ -34,16 +34,17 @@ for sub in SUBREDDITS:
 
 
 avg = avg_day_score()
+print("Grabbing and analyzing posts from " + str(len(SUBREDDITS)) + " subreddit(s)... ")
 if avg is None:
     print("No posts saved today.")
 else:
-    print("Today's average is " + str(avg))
-    message = "Today's sentiment is "
-    # score 0 is neg 1 nutetral 2 is positive
+    print("Today's average post score is " + str(avg))
+    message = "Today's market sentiment is "
+    # score 0 is neg 1 neutral 2 is positive
     if avg < 0.75:
-        message += "bearish"
+        message += "bearish!"
     elif avg > 1.25:
         message += "bullish!"
-    else: # nutral case
-        message += "nuetral"
+    else: # neutral case
+        message += "neutral!"
     print(message)
