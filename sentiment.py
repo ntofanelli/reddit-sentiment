@@ -15,12 +15,12 @@ def analyze_sentiment(text):
     # gets label back to integer
     label_to_id = classifier.model.config.label2id
 
-    # cutting off charater length if too long for classifier
-    if len(text) > 2000:
-        text = text[:2000]
+    # cutting off character length if too long for classifier
+    # if len(text) > 2000:
+    #     text = text[:2000]
 
     # analysis
-    result = classifier(text)
+    result = classifier(text, truncation=True, max_length=512)
     
     label = result[0]['label']
     
