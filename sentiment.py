@@ -1,5 +1,8 @@
 # sentiment.py takes a pretrained model and returns an integer score based on sentiment
 from transformers import pipeline
+from transformers import logging as transformers_logging
+
+
 
 # setting threshold to throw out week confidence responses
 THRESHOLD = 0.65
@@ -11,6 +14,8 @@ def analyze_sentiment(text):
         "text-classification", 
         model="cardiffnlp/twitter-roberta-base-sentiment-latest"
     )
+    # Hide warnings from hugging face
+    transformers_logging.set_verbosity_error()
 
     # gets label back to integer
     label_to_id = classifier.model.config.label2id
