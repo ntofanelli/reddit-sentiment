@@ -1,12 +1,11 @@
-# Reddit Sentiment
+# Reddit Based Stock Market Sentiment Tracker
 
-Reddit Sentiment takes finance subreddits and analyzes their sentiments to determines whether the market is bearish, bullish, or neutral on the given day.
+This project analyzes text data gathered from various subreddits to predict whether the stock market sentiment is bullish, bearish, or neutral.
 
 ## Description
 
-Based on finance subreddits, Reddit Sentiment finds suitibly long posts and using Hugging Face Transformers library, analyzes if their sentiment is Negative (0), Neutral (1), or Positive (2). 
+Using SocialCrawl's API, we collect text from various finance related subreddits and use an AI from Hugging Face's transformers library to judge the sentiment of each post. The model assigns an integer to each post based on how positive(2) or negative(1) the text is. We then find the average rating of all posts checked, which tells us the average market sentiment. The data is then stored in a database using SQLite. The amount of posts, subreddits, and newness of the posts can be configured individually.
 
- It stores the sentiment integer values for posts that reach a confidence threashold of 0.65 or higher in a database that can be accessed by date. It calculates an average score for a chosen day, and based on this score, it determines whether the market is bearish, bullish, or neutral.
 
 ## Getting Started
 
@@ -15,10 +14,6 @@ Based on finance subreddits, Reddit Sentiment finds suitibly long posts and usin
 * Describe any prerequisites, libraries, OS version, etc., needed before installing program.
 * ex. Windows 10
 
-### Installing
-
-* How/where to download your program
-* Any modifications needed to be made to files/folders
 
 ### Executing program
 
