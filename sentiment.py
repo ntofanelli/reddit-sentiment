@@ -1,7 +1,7 @@
 # sentiment.py takes a pretrained model and returns an integer score based on sentiment
 from transformers import pipeline
 
-# hidding report table and some warnings from user
+# hiding report table and some warnings from user
 
 from transformers import logging as transformers_logging
 transformers_logging.set_verbosity_error()
@@ -41,5 +41,3 @@ def analyze_sentiment(text):
 
 
     return final_int_label
-
-print(analyze_sentiment("Hello this is a test. please stand by"))

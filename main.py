@@ -1,12 +1,6 @@
 # main.py - Reddit Stock Sentiment Tracker
 
 
-import os
-from datetime import date
-from collections import Counter
-
-#Third Party
-from dotenv import load_dotenv
 
 #Local project modules
 from reddit_client import fetch_posts

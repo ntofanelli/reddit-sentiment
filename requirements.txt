@@ -4,7 +4,6 @@ idna==3.19
 python-dotenv==1.2.3
 requests==2.34.2
 urllib3==2.7.0
-# vaderSentiment==3.3.2
 --extra-index-url https://download.pytorch.org/whl/cpu
 torch
 torchvision
